@@ -1,7 +1,7 @@
 <template>
-    <section id="experiences" class="min-h-screen flex justify-center items-center">
+    <section id="home" class="min-h-screen flex justify-center items-center">
       <div>
-        <h2 class="text-4xl font-bold">Experiences</h2>
+        <h2 class="text-4xl font-bold">Home</h2>
         <div>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. Sed sit amet sem turpis. Curabitur lobortis id lorem id bibendum. Ut id consectetur magna. Quisque volutpat augue enim, pulvinar lobortis nibh lacinia at. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis at consectetur lorem. Donec massa sapien, faucibus et molestie ac, convallis non lorem. Cras vel lacus in ipsum rutrum dapibus sit amet eu quam.</p>
           <p>Quisque lacinia in ligula non consequat. Mauris ipsum nulla, aliquet quis dignissim in, eleifend in libero. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin volutpat, dolor ut auctor luctus, leo metus venenatis dolor, et mollis lorem ipsum sed risus. In sit amet felis malesuada, feugiat purus eget, varius mi. Proin eget mauris nisl. Curabitur sed lacinia eros, et adipiscing dui. Etiam fermentum convallis ligula, et feugiat tortor cursus in.</p>
