@@ -37,6 +37,8 @@ const selectedTab = ref('');
 onMounted(() => {
   if (window.location.hash) {
     selectedTab.value = window.location.hash.slice(1);
+  } else {
+    selectedTab.value = 'home';
   }
 });
 
