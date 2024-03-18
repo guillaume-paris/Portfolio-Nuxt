@@ -1,17 +1,36 @@
-<script setup>
-import { projects } from '@/data/projects';
+<script setup lang="ts">
+import { ref } from 'vue';
+import { projectsData } from '~/data/projects';
+import type { Project } from '~/types/projects';
 
+const projects = ref<Project[]>(projectsData);
 </script>
 
 <template>
   <section id="projects" class="min-h-screen flex justify-center items-center">
     <div class="flex flex-col gap-4">
       <h1 class="text-4xl font-bold">Projects</h1>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div v-for="project in projects" :key="project.title" class="bg-custom-black rounded-2xl text-white overflow-hidden">
-          <nuxt-img :src="project.banner" alt="Project banner" class="project-banner object-cover w-full h-52" />
-          <h3>{{ project.title }}</h3>
-          <p>{{ project.description }}</p>
+      <div class="grid grid-cols-1 gap-8">
+        <div v-for="project in projects" :key="project.title" class="bg-custom-black rounded-2xl text-white overflow-hidden shadow-2xl">
+          <div class="flex relative">
+            <nuxt-img :src="project.banner" alt="Project banner" class="project-banner object-cover w-full h-52" />
+            <div class="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black to-transparent"></div>
+            <h3 class="absolute bottom-3 left-3 z-50 text-2xl font-bold text-white">{{ project.title }}</h3>
+          </div>
+          <template v-if="project.collapsed === false">
+            <div class="px-6 py-3 flex flex-col items-start">
+              <p :class="project.collapsed ? '' : 'line-clamp-2'" class="text-lg">{{ project.description }}</p>
+              <button @click="project.collapsed = true" class="text-white px-4 py-2 self-center hover:underline">Read more</button>
+            </div>
+          </template>
+          <template v-else>
+            <div class="px-6 py-3">
+              <p class="text-lg">{{ project.description }}</p>
+            </div>
+            <div class="flex justify-center items-center p-3">
+              <button @click="project.collapsed = false" class="bg-custom-red text-white px-4 py-2 rounded-lg">Read less</button>
+            </div>
+          </template>
         </div>
       </div>
     </div>

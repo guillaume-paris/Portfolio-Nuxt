@@ -30,28 +30,44 @@
 </template>
 
 <script setup>
-import { ref, nextTick, onMounted } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 
-const selectedTab = ref('');
+const selectedTab = ref('home');
 
-onMounted(() => {
-  if (window.location.hash) {
-    selectedTab.value = window.location.hash.slice(1);
-  } else {
-    selectedTab.value = 'home';
-  }
-});
+// Liste des ID de vos sections
+const sectionIds = ['home', 'about', 'education', 'experiences', 'projects', 'contact'];
 
 const scrollToSection = (sectionId, event) => {
   event.preventDefault();
-  selectedTab.value = sectionId;
-
-  nextTick(() => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-      window.history.pushState({}, '', '#' + sectionId);
-    }
-  });
+  const section = document.getElementById(sectionId);
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
 };
+
+// Fonction pour déterminer la section en vue
+const handleScroll = () => {
+  let selectedSection = 'home'; // Valeur par défaut
+
+  for (let i = 0; i < sectionIds.length; i++) {
+    const section = document.getElementById(sectionIds[i]);
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.offsetHeight;
+    if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+      selectedSection = sectionIds[i];
+      break;
+    }
+  }
+
+  selectedTab.value = selectedSection;
+};
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
 </script>
+
