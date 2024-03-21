@@ -16,7 +16,11 @@ export default {
         'custom-black-inverted': '#c3ccd4',
         'custom-pink': '#d7bab4',
         'custom-pink-inverted': '#28454b',
-      }
+      },
+      fontFamily: {
+        'title': ['Playfair', 'serif'],
+        'body': ['Lora', 'serif'],
+      },
     },
   },
   plugins: [],

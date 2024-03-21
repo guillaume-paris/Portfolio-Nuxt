@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="flex flex-col gap-10">
     <Home />
     <About />
     <Education />
