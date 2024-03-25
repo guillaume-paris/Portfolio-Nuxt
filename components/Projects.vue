@@ -7,7 +7,7 @@ const projects = ref<Project[]>(projectsData);
 </script>
 
 <template>
-  <section id="projects" class="min-h-screen flex justify-center items-center">
+  <section id="projects">
     <div class="flex flex-col gap-8">
       <h1 class="text-4xl font-bold">Projects</h1>
       <div class="grid grid-cols-1 gap-8">

@@ -9,7 +9,7 @@ const juniorConseilTakerCollapsed = ref(false);
 </script>
 
 <template>
-  <section id="experiences" class="min-h-screen flex justify-center items-center">
+  <section id="experiences">
     <div class="flex flex-col gap-6 w-full">
       <h2 class="text-4xl font-bold">Experiences</h2>
       <span class="text-lg">To show you my experiences, here is a timeline representing my years of study at Epitech since I'm still in my fourth year.</span>

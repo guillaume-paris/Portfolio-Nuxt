@@ -26,42 +26,40 @@ const questionsAnswers = ref([
 </script>
 
 <template>
-  <section id="about" class="min-h-screen flex justify-center items-center">
-    <div>
-      <h2 class="text-4xl font-bold">About Me</h2>
-      <div class="flex flex-col gap-8 pt-6">
-        <div class="flex flex-col gap-2">
-          <span class="text-xl text-justify">
-            Hello, my name is Guillaume Paris, and I'm currently in my fourth year at Epitech in the Grande Ecole program. I'm in my first year of master's studies to obtain my degree in Expert Software Engineering (Degree recognized by the State and RNCP level 7 accredited).
-          </span>
-          <span class="text-xl text-justify">
-            During my years of study, I naturally gravitated towards web development, especially front-end, through my first internship at PWC. In frontend development, I enjoy the interactivity that can be achieved, and I am quite perfectionistic, striving for the best possible outcome.
-          </span>
-          <span class="text-xl text-justify">
-            This website serves as my portfolio, allowing me to create a more comprehensive CV and showcase my skills while exploring a new technology (Nuxt3).
-          </span>
-        </div>
-        <template v-for="questionAnswer in questionsAnswers" :key="index">
-          <div class="flex flex-col gap-2 w-full px-6 py-4 bg-custom-dark text-white rounded-xl cursor-pointer" @click="questionAnswer.collapsed = !questionAnswer.collapsed">
-            <div class="flex flex-row justify-between items-center">
-              <span class="text-2xl font-bold underline underline-offset-4 cursor-text">{{ questionAnswer.question }}</span>
-              <font-awesome-icon :icon="questionAnswer.collapsed ? ['fas', 'chevron-down'] : ['fas', 'chevron-up']" />
-            </div>
-            <Transition name="collapse">
-              <span v-show="!questionAnswer.collapsed" class="text-lg text-justify cursor-text">
-                {{ questionAnswer.answer }}
-              </span>
-            </Transition>
-          </div>
-        </template>
-        <span class="self-center flex flex-row gap-4 w-min justify-center items-center px-6 py-4 bg-custom-dark text-white rounded-xl cursor-pointer">
-          <font-awesome-icon :icon="['fas', 'file-arrow-down']" />
-          <span class="text-2xl font-bold text-nowrap">
-            Download my resume!
-          </span>
-          <font-awesome-icon :icon="['fas', 'file-arrow-down']" />
+  <section id="about">
+    <h2 class="text-4xl font-bold">About Me</h2>
+    <div class="flex flex-col gap-8 pt-6">
+      <div class="flex flex-col gap-2">
+        <span class="text-xl text-justify">
+          Hello, my name is Guillaume Paris, and I'm currently in my fourth year at Epitech in the Grande Ecole program. I'm in my first year of master's studies to obtain my degree in Expert Software Engineering (Degree recognized by the State and RNCP level 7 accredited).
+        </span>
+        <span class="text-xl text-justify">
+          During my years of study, I naturally gravitated towards web development, especially front-end, through my first internship at PWC. In frontend development, I enjoy the interactivity that can be achieved, and I am quite perfectionistic, striving for the best possible outcome.
+        </span>
+        <span class="text-xl text-justify">
+          This website serves as my portfolio, allowing me to create a more comprehensive CV and showcase my skills while exploring a new technology (Nuxt3).
         </span>
       </div>
+      <template v-for="questionAnswer in questionsAnswers" :key="index">
+        <div class="flex flex-col gap-2 w-full px-6 py-4 bg-custom-dark text-white rounded-xl cursor-pointer" @click="questionAnswer.collapsed = !questionAnswer.collapsed">
+          <div class="flex flex-row justify-between items-center">
+            <span class="text-2xl font-bold underline underline-offset-4 cursor-text">{{ questionAnswer.question }}</span>
+            <font-awesome-icon :icon="questionAnswer.collapsed ? ['fas', 'chevron-down'] : ['fas', 'chevron-up']" />
+          </div>
+          <Transition name="collapse">
+            <span v-show="!questionAnswer.collapsed" class="text-lg text-justify cursor-text">
+              {{ questionAnswer.answer }}
+            </span>
+          </Transition>
+        </div>
+      </template>
+      <span class="self-center flex flex-row gap-4 w-min justify-center items-center px-6 py-4 bg-custom-dark text-white rounded-xl cursor-pointer">
+        <font-awesome-icon :icon="['fas', 'file-arrow-down']" />
+        <span class="text-2xl font-bold text-nowrap">
+          Download my resume!
+        </span>
+        <font-awesome-icon :icon="['fas', 'file-arrow-down']" />
+      </span>
     </div>
   </section>
 </template>
