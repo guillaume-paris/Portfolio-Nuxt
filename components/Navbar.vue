@@ -1,6 +1,6 @@
 <template>
   <nav class="fixed top-0 left-0 h-full w-32 flex flex-col z-10">
-    <div class="pl-2 py-2 grid grid-flow-row gap-2 h-full">
+    <div class="pl-2 py-2 grid grid-flow-row gap-2 h-full bg-gradient-to-r from-custom-white from-30% to-transparent">
       <a href="#home" @click.prevent="scrollToSection('home')" class="flex items-center gap-2 cursor-pointer">
         <span :class="selectedTab === 'home' ? 'bg-custom-dark' : 'bg-custom-green'" class="h-full w-2 rounded-full"></span>
         Home
